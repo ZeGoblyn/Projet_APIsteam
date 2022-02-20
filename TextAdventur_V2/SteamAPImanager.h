@@ -14,10 +14,15 @@ private:
 public:
 	SteamAPImanager();
 
+	//Gestion de l'API
 	bool SteamAPIInit();
 	void SteamAPIQuit();
+
+	//Recupération d'ami
 	void GetFriends();
 	void SteamUpdate();
+
+	//Activation de l'overlay
 	void ActivateOverlay();
 };
 

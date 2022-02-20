@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 
-void GameManager::OnFriendStatusChanged(PersonaStateChange_t* pCallback)
+void GameManager::OnFriendStatusChanged(PersonaStateChange_t* pCallback) //Fonction permettant de signaler un changement de statut des amis steam
 {
     const char* friendName = SteamFriends()->GetFriendPersonaName(pCallback->m_ulSteamID);
     EPersonaState friendStatusEnum = SteamFriends()->GetFriendPersonaState(pCallback->m_ulSteamID);
@@ -42,7 +42,7 @@ void GameManager::OnFriendStatusChanged(PersonaStateChange_t* pCallback)
     std::cout << friendName << " status is now " << friendStatus << " !" << std::endl;
 }
 
-GameManager::GameManager()
+GameManager::GameManager()  //Implantation de variable gérant la boucle d'update
 {
     bRunning = true;
     pSteamManager = nullptr;
@@ -87,7 +87,7 @@ void GameManager::OnGetNumberOfCurrentPlayers(NumberOfCurrentPlayers_t* pCallbac
 }
 
 //--------------------------------------------------------------
-//Select if user create or join a lobby
+//Permet à l'utilisateur de créer ou de rejoindre un lobby
 //--------------------------------------------------------------
 void GameManager::selectGame()
 {
@@ -115,7 +115,7 @@ void GameManager::selectGame()
 
         join_lobby(lobbyID64);
 
-        std::cout << " Désirez vous rejoindre un serveur? (Y/N) ";
+        /*std::cout << " Désirez vous rejoindre un serveur? (Y/N) "; //Code censé mener au lancement d'un serveur
         std::cin >> serv;
 
         if (serv == 'Y' || serv == 'y')
@@ -125,17 +125,17 @@ void GameManager::selectGame()
         else if (serv == 'N' || serv == 'n')
         {
             return;
-        }
+        }*/
 
     }
-    else if (choice == 3)
+    else if (choice == 3)       //Elément permettant d'updater manuellement lorsque la fonction se trouvait dans l'Update
     {
         std::cout << " UPDATE ";
     }
 }
 
 //--------------------------------------------------------------
-//Lobby creation
+//Création de lobby
 //--------------------------------------------------------------
 void GameManager::LobbyCreation()
 {
@@ -155,7 +155,7 @@ void GameManager::OnLobbyCreated(LobbyCreated_t* pCallback, bool bIOFailure)
 }
 
 //--------------------------------------------------------------
-//Research & lobby joining
+//Recherche et jonction d'un lobby
 //--------------------------------------------------------------
 /*void GameManager::FindLobbies()
 {
@@ -196,7 +196,7 @@ void GameManager::OnLobbyMatchList(LobbyMatchList_t* pCallback, bool bIOFailure)
 }*/
 
 //--------------------------------------------------------------
-//Join Lobby by ID
+//Jonction à un lobby
 //--------------------------------------------------------------
 
 void GameManager::join_lobby(uint64 lobby_id64) {
@@ -226,7 +226,3 @@ void GameManager::OnLobbyEntered(LobbyEnter_t* pCallback, bool bIOFailure)
     }
 }
 
-void GameManager::ServerJoin()
-{
-
-}

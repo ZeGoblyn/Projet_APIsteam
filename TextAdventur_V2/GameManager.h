@@ -11,7 +11,7 @@ private:
     STEAM_CALLBACK(GameManager, OnFriendStatusChanged, PersonaStateChange_t);
     //STEAM_CALLBACK(GameManager, LobbyCreation, LobbyCreated_t);
 
-    //CALL RESULTS
+    //CALL RESULTS / Manual Callback
     void OnGetNumberOfCurrentPlayers(NumberOfCurrentPlayers_t* pCallback, bool bIOFailure);
     CCallResult< GameManager, NumberOfCurrentPlayers_t > m_NumberOfCurrentPlayersCallResult;
 
@@ -41,15 +41,16 @@ public:
     //Fonctions
     void Update();
 
-    void GetNumberOfCurrentPlayers();
+    void GetNumberOfCurrentPlayers(); //Récupération du nombre de joueur
 
+    //Fonction gérant la sélection de création ou de jonction d'un lobby
     void selectGame();
 
     void LobbyCreation();
 
     //void FindLobbies();
 
-    void ServerJoin();
+    //void ServerJoin();
 
 
 };

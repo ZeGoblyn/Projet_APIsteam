@@ -51,7 +51,7 @@ void SteamAPImanager::SteamAPIQuit()
 
 }
 
-void SteamAPImanager::SteamUpdate()
+void SteamAPImanager::SteamUpdate()	//Implantation de la gestion de Callback
 {
 	SteamAPI_RunCallbacks();
 }
@@ -59,10 +59,10 @@ void SteamAPImanager::SteamUpdate()
 void SteamAPImanager::ActivateOverlay()
 {
 	//printf_s("Activate overlay\n");
-	SteamFriends()->ActivateGameOverlay("friends");
+	SteamFriends()->ActivateGameOverlay("friends"); //Activation des fonctions d'Overlay
 }
 
-void SteamAPImanager::GetFriends()
+void SteamAPImanager::GetFriends()	
 {
 	int nFriends = SteamFriends()->GetFriendCount(k_EFriendFlagAll);
 

@@ -24,25 +24,23 @@ int main()
     SteamAPImanager SteamAPImanager;
     GameManager GameQuiManage;
 
-        SteamAPImanager.SteamAPIInit();
+        SteamAPImanager.SteamAPIInit(); //Initialisation de l'APi
 
     //{
-        SteamAPImanager.SteamUpdate();
+        SteamAPImanager.SteamUpdate(); //Updatede l'API
 
-        SteamAPImanager.ActivateOverlay();
+        SteamAPImanager.ActivateOverlay(); //Activation de l'overlay et de l'interface
 
-        GameQuiManage.SetSteamManager(&SteamAPImanager);
+        GameQuiManage.SetSteamManager(&SteamAPImanager); 
 
-        GameQuiManage.GetNumberOfCurrentPlayers();
+        GameQuiManage.GetNumberOfCurrentPlayers(); //Récupération du nombre de joueur sur l'application
 
-        GameQuiManage.selectGame();
+        GameQuiManage.selectGame(); //Choix de créer ou rejoindre un lobby
 
         GameQuiManage.Update();
-
-        //GameQuiManage.selectGame();
     //}
 
-    SteamAPImanager.SteamAPIQuit();
+    SteamAPImanager.SteamAPIQuit(); // Fin de l'élimination d l'API
 
     return 0;
 }
